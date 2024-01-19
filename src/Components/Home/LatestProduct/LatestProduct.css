@@ -1,0 +1,33 @@
+.banner-bg {
+    background-image: url('../../../images/review-bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: auto;
+    padding-top: 2%;
+    padding-bottom: 2%;
+  }
+.latest-header{
+    font-weight: bold;
+    color: white;
+    text-align: center;
+}
+
+  .slick-prev {
+    left: 3% !important;
+    z-index: 1;
+  }
+  .slick-next {
+    right: 3% !important;
+    z-index: 1;
+  }
+
+#see-all-link{
+   display: flex;
+   justify-content: center;
+   color: white;
+   text-decoration: none;
+}
+#see-all-link:hover{
+  color:darkorange;
+}
+

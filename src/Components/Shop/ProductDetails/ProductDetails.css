@@ -1,0 +1,22 @@
+#details-card{
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    border:none;
+    border-radius: 10px;
+    box-shadow: 4px 4px 8px cadetblue;
+    color: black;
+    padding: 5%; 
+}
+.product-img{
+   
+    width: 50%; 
+}
+.title{
+    color: indigo;
+}
+.bolder{
+    font-size: bolder;
+}

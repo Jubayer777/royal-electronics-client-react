@@ -1,0 +1,67 @@
+
+.name_email{
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    width: 55%;
+    justify-content: space-between;
+}
+.book_half{
+    width: 48%;
+}
+.input_field{
+    border-radius: 5px;
+    border:solid 1.5px #D3D3D3;
+    margin-top: 10px;
+    margin-bottom: 20px;   
+}
+.input_field:hover{
+    box-shadow: 0 0 5pt 0.5pt #D3D3D3;
+}
+.input_field:focus{
+    box-shadow: 0 0 5pt 2pt #D3D3D3;
+    outline-width: 0px;
+    background-color: white;
+}
+.address{
+    margin-left: auto;
+    margin-right: auto;
+    width: 55%;
+}
+.single_field{
+    width: 97.5%;
+    height: 60px;
+    padding: 8px;
+}
+.double_field{
+    width: 95%;
+    height: 30px;
+    padding: 8px;
+}
+.payment{
+    margin-left: auto;
+    margin-right: auto;
+    width: 55%;
+    margin-top: -20px;
+}
+.pay_cost{
+    margin-top: -10px;
+    font-weight: bold;
+}
+.cost_amount{
+    margin-left: 2px;
+}
+@media screen and (max-width: 600px) {
+    .name_email{
+        margin-left: 20%;
+        margin-right: auto;
+        display: inline-block;
+        width: 62%;
+    }
+    .address,.payment{
+        width: 60%;
+    }
+    .book_half{
+        width: 100%;
+    }
+  }

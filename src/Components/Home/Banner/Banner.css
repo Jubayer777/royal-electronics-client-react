@@ -1,0 +1,37 @@
+
+.page-banner{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 30em;
+}
+.banner-left{
+ grid-column: 5;
+
+}
+.banner-1{
+    background-image:linear-gradient(to left,rgba(0, 0, 0, 0) 0%,rgba(89, 62, 97, 0.952) 100%), url('../../../images/test-bg-1.jpg');
+}
+
+.banner-txt{
+    margin-top: 20%;
+    margin-left: 10%;
+    margin-right: 30%;
+    margin-bottom: auto;
+    color: white;
+}
+.banner-title{
+    color: rgb(117, 228, 27);
+}
+.banner-txt p{
+    font-size: 20px;
+
+}
+
+@media only screen and (min-width: 760px) {
+    .page-banner{
+        height: 40em;
+    }
+  }

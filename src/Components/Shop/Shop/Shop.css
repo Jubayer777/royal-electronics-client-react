@@ -1,0 +1,31 @@
+.product-container{
+  
+}
+.products{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.no-match{
+    text-align: center;
+    margin-top: 200px;
+    margin-bottom: 200px;
+    color: rgb(192, 52, 17);
+    font-weight: bold;
+}
+@media only screen and (max-width: 640px) {
+    .products{
+        grid-template-columns: 1fr;
+    }
+
+  }
+
+@media only screen and (min-width: 641px) and (max-width: 919px) {
+    .products{
+        grid-template-columns: 1fr 1fr;
+    }
+  }
+@media only screen and (min-width: 920px) and (max-width: 1023px) {
+    .products{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+  }

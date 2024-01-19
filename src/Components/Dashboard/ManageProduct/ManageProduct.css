@@ -1,0 +1,153 @@
+body {
+    font-family: "Open Sans", sans-serif;
+    line-height: 1.25;
+  }
+  table {
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    margin: 10px;
+    padding: 0;
+    width: 90%;
+    table-layout: fixed;
+    box-shadow: 2px 5px 4px rgb(68, 63, 63);
+  }
+  
+  table caption {
+    font-size: 1.5em;
+    margin: .5em 0 .75em;
+  }
+  
+  table tr {
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    padding: .35em;
+  }
+  
+  table th,
+  table td {
+    padding: .625em;
+    text-align: center;
+  }
+  
+  table th {
+    background-color:peru;
+    color: white;
+    font-size: .85em;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+  
+  @media screen and (max-width: 600px) {
+    table {
+      border: 0;
+    }
+    table thead {
+      border: none;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 1px;
+    }
+    
+    table tr {
+      border-bottom: 3px solid #ddd;
+      display: block;
+      margin-bottom: .625em;
+    }
+    
+    table td {
+      border-bottom: 1px solid #ddd;
+      display: block;
+      font-size: .8em;
+      text-align: right;
+    }
+    
+    table td::before {
+      content: attr(data-label);
+      float: left;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    
+    table td:last-child {
+      border-bottom: 0;
+    }
+    
+  }
+  .table-img{
+    width: 100px;
+    height: 100px;
+ }
+ .table-area{
+     margin-left: auto;
+     margin-right: auto;
+ }
+.order-status{
+  cursor: pointer;
+  border-radius: 5px;
+  border:solid 1.5px #D3D3D3;
+  height: 30px;
+}
+.order-status:hover{
+  box-shadow: 0 0 5pt 2pt #D3D3D3;
+}
+.order-status:focus{
+    box-shadow: 0 0 5pt 2pt #D3D3D3;
+    outline-width: 0px;
+    background-color: white;
+}
+.btn-area{
+ display: flex;
+ justify-content: end;
+ margin-top :20px;
+ margin-bottom: 20px;
+ margin-right: 5%;
+}
+ .add-new-btn{
+   height: 30px;
+   border: none;
+   background-color: green;
+   color: white;
+   border-radius: 5px;
+   cursor: pointer; 
+ }
+ .add-new-btn:hover{
+  box-shadow: 0 0 5pt 0.5pt #afaaaa;
+  background-color: rgb(97, 81, 51);
+}
+ .page-title{
+   font-weight: bolder;
+   color:brown;
+ }
+ .user-name{
+   font-weight: bold;
+   color:rgb(133, 90, 10);
+ }
+ .user-email{
+   text-align: center;
+ }
+ .user-orders{
+   text-align: center;
+   font-size: 17px;
+   color: rgb(55, 70, 26);
+ }
+ .error-txt{
+   color: red;
+ }
+.pt{
+  display: flex;
+}
+.loading{
+  text-align: center;
+  margin-top: 200px;
+}
+.no_order{
+  margin-top: 200px;
+  text-align: center;
+}
+.no_order h3{
+  color:red;
+}

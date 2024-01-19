@@ -1,0 +1,43 @@
+.notify-container{
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 150px;
+    margin-bottom: 100px;
+    width: 70%;
+    border-radius: 5px;
+    padding: 5%;
+}
+.forgot_pass{
+    margin-top: 250px;
+}
+.notify-items{
+    text-align: center;
+    margin-top: 200px;
+}
+.notify-items h1{
+    color: brown;
+}
+.email_section{
+    width: 55%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.mail_field{
+    width: 97.2%;
+    height: 30px;
+    padding: 8px;
+}
+.reset_element{
+    margin-left: 22.3%;
+}
+@media only screen and (max-width: 640px) {
+    .email_section{
+        width: 80%;
+    }
+    .mail_field{
+        width: 95%;
+    }
+    .reset_element{
+        margin-left: 10%;
+    }
+  }

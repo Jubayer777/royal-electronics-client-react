@@ -1,0 +1,46 @@
+
+.service{
+    width: 60%;
+    height: 160px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 40px;
+    border-radius: 10px;
+    border: none;
+    text-align: center;
+    box-shadow: 4px 4px 8px cadetblue;
+    background-color: rgb(41, 20, 61);
+    color: white;
+}
+.services-title{
+    text-align: center;
+    margin-top:30px;
+}
+.services-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-bottom: 50px;
+}
+.service-body{
+    color:orange;
+}
+@media only screen and (max-width: 640px) {
+    .services-container{
+        grid-template-columns: 1fr;
+    }
+    .service{
+       
+        margin-bottom: 20px;
+       
+    }
+  }
+
+  @media only screen and (min-width: 641px) and (max-width: 940px) {
+    .service{
+        height: 250px;
+        padding: 30px;
+    }
+    .service h2{
+        margin-top: 0px;
+    }
+  }

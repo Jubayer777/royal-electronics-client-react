@@ -1,0 +1,52 @@
+.pay-btn{
+    height: 30px;
+    width: 80px;
+    border:none;
+    border-radius: 5px;
+    color: white;
+    float: right;
+    background-color: rgb(17, 6, 83);
+    cursor: pointer;
+}
+.pay-btn:hover{
+    background-color: rgb(173, 118, 15);
+    box-shadow: 0 0 5pt 0.5pt #71b1ec;
+}
+.card-number, .date-input, .cvc-input{
+    background-color: white;
+    height: 30px;
+    padding-top: 15px;
+    padding-left: 8px;
+    padding-right: 8px; 
+}
+.card-number{
+    width: 92%;
+}
+.card_info{
+    display: flex;
+    justify-content: space-between;
+}
+.date-input,.cvc-input{
+    width: 92%;
+}
+.card_left{
+    width: 38%;
+}
+.card_mid,.card_right{
+    width: 27%;
+}
+@media screen and (max-width: 600px) {
+    .card_info{
+        display: inline-block;
+        width: 105%;
+    }
+    .card_left,.card_mid,.card_right{
+        width: 100%;
+    }
+    .date-input,.cvc-input{
+        width: 92%;
+    }
+    .pay-btn{
+        margin-right: -10px;
+    }
+  }

@@ -1,0 +1,156 @@
+
+
+.top-area{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+.input-label{
+    font-size: 15px;
+}
+.submit-btn{
+    height: 30px;
+    border: none;
+    border-radius: 4px;
+    background-color: rgb(19, 19, 65);
+    color: white;
+    cursor: pointer;
+}
+.submit-btn:hover{
+    background-color: rgb(65, 58, 19);
+    box-shadow: 0 0 5pt 0.5pt #7e9bec;
+}
+.add_container{
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+}
+.image_div{
+    width: 25%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.img-area{
+    border:1px dashed rgb(139, 127, 127);
+    width: 100%;
+    height: 200px;
+    margin-top: 10px;
+    border-radius: 10px;
+    background-color:white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.img-items{
+    height: 30px;
+    text-align: center;
+}
+.img-text{
+    margin-top: 0px;
+    font-size: small;
+}
+.img-input{
+    display:none;
+}
+.img-review{
+    width: 100%;
+    height: 200px;
+    border-radius: 10px;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #59253A;
+}
+.img-div{
+    width: 200px;
+    height: 200px;
+    border: none;
+    border-radius: 5px;
+}
+.input-camera{
+    background-color: rgb(153, 148, 148);
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 60px;
+    cursor: pointer;
+    position: relative;
+    top:70px;
+    left: 40px;
+}
+
+.description_section{
+    width: 55%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.product_section{
+    width: 55%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-between;
+}
+.number_input{
+    width: 91%;
+    background-color: white;
+    height: 30px;
+    padding: 8px; 
+}
+.half_field{
+    width: 94.5%;
+    height: 30px;
+    padding: 8px;
+}
+.dropdown-field{
+  width: 100%;
+  height: 50px;
+  padding-bottom: 8px;
+  padding-top: 8px;
+  padding-left: 8px;
+
+}
+.submit_div{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+@media only screen and (max-width: 640px) {
+    .image_div{
+        width: 80%;
+    }
+    .img-area,.img-review{
+        height: 170px;
+    }
+    .img-div{
+        width: 240px;
+        height: 150px;
+    }
+    .input-camera{
+        position: relative;
+        top:55px;
+        left: 5px;
+    }
+    .product_section{
+        display: inline-block;
+        margin-left: 10%;
+        margin-right: auto;
+        width: 80%;
+    }
+    .description_section{
+        width: 80%;
+    }
+    .number_input{
+        width: 94%;
+    }
+  }
+
+ 
+
