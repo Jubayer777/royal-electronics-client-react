@@ -35,6 +35,9 @@ const Navbar = () => {
                 sessionStorage.clear();
                 cart.length = 0;
                 setLoggedInUser({});
+            })
+            .catch((err) => {
+                console.log(err);
             });
     };
 

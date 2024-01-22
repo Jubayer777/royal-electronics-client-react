@@ -50,6 +50,9 @@ const Login = () => {
                         setError("");
                         reset();
                     }
+                })
+                .catch((err) => {
+                    console.log(err);
                 });
         } else {
             const loginData = {
@@ -91,6 +94,9 @@ const Login = () => {
                         setErrorsData("");
                         reset();
                     }
+                })
+                .catch((err) => {
+                    console.log(err);
                 });
         }
     };
