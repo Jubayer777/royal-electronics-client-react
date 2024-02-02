@@ -12,7 +12,7 @@ const ManageCategory = () => {
     //load all categories
     const [categories, setCategories] = useState([]);
     useEffect(() => {
-        fetch("http://127.0.0.1:8000/api/c1/categories")
+        fetch("https://reapi.pabnafoods.com/api/c1/categories")
             .then((res) => res.json())
             .then((data) => {
                 // console.log(data.data);
@@ -26,7 +26,7 @@ const ManageCategory = () => {
 
     //delete category
     const handleDeleteCategory = (id) => {
-        fetch(`http://127.0.0.1:8000/api/c1/categories/${id}`, {
+        fetch(`https://reapi.pabnafoods.com/api/c1/categories/${id}`, {
             method: "DELETE",
             headers: {
                 "content-type": "application/json",

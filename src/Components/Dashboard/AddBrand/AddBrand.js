@@ -18,7 +18,7 @@ const AddBrand = () => {
         const brandData = {
             brand_name: info.brand_name,
         };
-        fetch("http://127.0.0.1:8000/api/b1/brands", {
+        fetch("https://reapi.pabnafoods.com/api/b1/brands", {
             method: "POST",
             headers: {
                 "content-type": "application/json",

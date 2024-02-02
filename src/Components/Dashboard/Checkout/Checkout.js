@@ -1,10 +1,9 @@
-import userEvent from "@testing-library/user-event";
-import React, { useContext, useState } from "react";
-import { useHistory, useParams } from "react-router";
-import { UserContext } from "../../../App";
+import React, { useState } from "react";
+import { useHistory } from "react-router";
 import ProcessPayment from "../ProcessPayment/ProcessPayment";
 import Sidebar from "../SideBar/Sidebar";
 import "./Checkout.css";
+import { useGlobalContext } from "../../../Context/GlobalContext";
 
 const Checkout = () => {
     const history = useHistory();
@@ -12,7 +11,7 @@ const Checkout = () => {
     const userId = sessionStorage.getItem("userId");
     const userEmail = sessionStorage.getItem("userEmail");
     const userName = sessionStorage.getItem("userName");
-    const [cart, setCart] = useContext(UserContext);
+    const { cart, setCart } = useGlobalContext();
 
     const [info, setInfo] = useState({});
     const handleBlur = (e) => {
@@ -51,13 +50,16 @@ const Checkout = () => {
                     formData.append("product_quantity", quantity);
                     formData.append("image", ct.image);
                     formData.append("_method", "PATCH");
-                    fetch(`http://127.0.0.1:8000/api/p1/products/${id}`, {
-                        method: "POST",
-                        headers: {
-                            authorization: `Bearer ${token}`,
-                        },
-                        body: formData,
-                    })
+                    fetch(
+                        `https://reapi.pabnafoods.com/api/p1/products/${id}`,
+                        {
+                            method: "POST",
+                            headers: {
+                                authorization: `Bearer ${token}`,
+                            },
+                            body: formData,
+                        }
+                    )
                         .then((res) => res.json())
                         .then((data) => {})
                         .catch((err) => {
@@ -72,7 +74,7 @@ const Checkout = () => {
                     total: cart.total,
                     status: "Pending",
                 };
-                fetch("http://127.0.0.1:8000/api/o1/orders", {
+                fetch("https://reapi.pabnafoods.com/api/o1/orders", {
                     method: "POST",
                     headers: {
                         "content-type": "application/json",

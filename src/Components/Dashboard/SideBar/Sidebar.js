@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
 import { Link, useHistory } from "react-router-dom";
@@ -6,15 +6,13 @@ import "./Sidebar.css";
 import { IconContext } from "react-icons";
 import { AdminSidebarData } from "./AdminSidebarData";
 import { UserSidebarData } from "./UserSidebarData";
-import { UserContext, UserContext2, UserContext3 } from "../../../App";
+import { useGlobalContext } from "../../../Context/GlobalContext";
 
 const Sidebar = () => {
     const history = useHistory();
-    const [cart, setCart] = useContext(UserContext);
+    const { cart, setLoggedInUser, isAdmin } = useGlobalContext();
     const [sidebar, setSidebar] = useState(false);
     const showSidebar = () => setSidebar(!sidebar);
-    const [loggedInUser, setLoggedInUser] = useContext(UserContext2);
-    const [isAdmin, setIsAdmin] = useContext(UserContext3);
 
     let Role = "";
     if (isAdmin) {
@@ -24,7 +22,7 @@ const Sidebar = () => {
     }
     const token = sessionStorage.getItem("token");
     const handleSignOut = () => {
-        const url = "http://127.0.0.1:8000/api/auth/logout";
+        const url = "https://reapi.pabnafoods.com/api/auth/logout";
         fetch(url, {
             method: "POST",
             headers: {

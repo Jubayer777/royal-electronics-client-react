@@ -13,7 +13,7 @@ const ManageProduct = () => {
     // load all products
     const [products, setProducts] = useState([]);
     useEffect(() => {
-        fetch("http://127.0.0.1:8000/api/p1/products")
+        fetch("https://reapi.pabnafoods.com/api/p1/products")
             .then((res) => res.json())
             .then((data) => {
                 setProducts(data.data);
@@ -26,7 +26,7 @@ const ManageProduct = () => {
 
     // delete product
     const handleDeleteProduct = (id) => {
-        fetch(`http://127.0.0.1:8000/api/p1/products/${id}`, {
+        fetch(`https://reapi.pabnafoods.com/api/p1/products/${id}`, {
             method: "DELETE",
             headers: {
                 "content-type": "application/json",
@@ -121,7 +121,7 @@ const ManageProduct = () => {
                                         <td data-label="Image">
                                             <img
                                                 className="table-img"
-                                                src={`http://127.0.0.1:8000/upload/${pd.image}`}
+                                                src={`https://reapi.pabnafoods.com/upload/${pd.image}`}
                                                 alt={pd.image}
                                             />
                                         </td>

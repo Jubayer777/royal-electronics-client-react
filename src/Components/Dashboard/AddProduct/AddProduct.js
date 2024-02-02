@@ -41,7 +41,7 @@ const AddProduct = () => {
         formData.append("product_quantity", quantity);
         formData.append("image", image);
         console.log(formData);
-        fetch("http://127.0.0.1:8000/api/p1/products", {
+        fetch("https://reapi.pabnafoods.com/api/p1/products", {
             method: "POST",
             headers: {
                 authorization: `Bearer ${token}`,
@@ -65,7 +65,7 @@ const AddProduct = () => {
 
     const [categories, setCategories] = useState([]);
     useEffect(() => {
-        fetch("http://127.0.0.1:8000/api/c1/categories")
+        fetch("https://reapi.pabnafoods.com/api/c1/categories")
             .then((res) => res.json())
             .then((data) => {
                 setCategories(data.data);
@@ -77,7 +77,7 @@ const AddProduct = () => {
 
     const [brands, setBrands] = useState([]);
     useEffect(() => {
-        fetch("http://127.0.0.1:8000/api/b1/brands")
+        fetch("https://reapi.pabnafoods.com/api/b1/brands")
             .then((res) => res.json())
             .then((data) => {
                 setBrands(data.data);

@@ -14,7 +14,7 @@ const ManageAdmin = () => {
     const [load, setLoad] = useState(true);
 
     useEffect(() => {
-        fetch("http://127.0.0.1:8000/api/a1/admins", {
+        fetch("https://reapi.pabnafoods.com/api/a1/admins", {
             headers: {
                 "content-type": "application/json",
                 authorization: `Bearer ${token}`,
@@ -32,7 +32,7 @@ const ManageAdmin = () => {
 
     const handleDeleteAdmin = (id, user_id) => {
         if (parseInt(userId) !== user_id) {
-            fetch(`http://127.0.0.1:8000/api/a1/admins/${id}`, {
+            fetch(`https://reapi.pabnafoods.com/api/a1/admins/${id}`, {
                 method: "DELETE",
                 headers: {
                     "content-type": "application/json",

@@ -1,24 +1,23 @@
-import React, { useContext } from 'react';
-import { Redirect, Route } from 'react-router';
+import React from "react";
+import { Redirect, Route } from "react-router";
 
-
-const PrivateRoute = ({children, ...rest}) => {
+const PrivateRoute = ({ children, ...rest }) => {
     return (
-            <Route
-                {...rest}
-                render={({ location }) =>
-                (  sessionStorage.getItem('token')) ? (
+        <Route
+            {...rest}
+            render={({ location }) =>
+                sessionStorage.getItem("token") ? (
                     children
-                    ) : (
+                ) : (
                     <Redirect
                         to={{
-                        pathname: "/login",
-                        state: { from: location }
+                            pathname: "/login",
+                            state: { from: location },
                         }}
                     />
-                    )
-                }
-            />
+                )
+            }
+        />
     );
 };
 

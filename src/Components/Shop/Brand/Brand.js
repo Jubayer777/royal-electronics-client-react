@@ -8,6 +8,7 @@ import Navbar from "../../Home/Navbar/Navbar";
 import Footer from "../../Home/Footer/Footer";
 import { useParams } from "react-router";
 import Pagination from "../Pagination/Pagination";
+import { useGlobalContext } from "../../../Context/GlobalContext";
 
 // spinner css
 const override = css`
@@ -26,7 +27,7 @@ const Brand = () => {
     const [products, setProducts] = useState([]);
     const [brand, setBrand] = useState([]);
     useEffect(() => {
-        fetch(`http://127.0.0.1:8000/api/b1/brands/${id}`)
+        fetch(`https://reapi.pabnafoods.com/api/b1/brands/${id}`)
             .then((res) => res.json())
             .then((data) => {
                 setBrand(data.data);
@@ -38,7 +39,7 @@ const Brand = () => {
             });
     }, [id]);
 
-    const [cart, setCart] = useContext(UserContext);
+    const { cart, setCart } = useGlobalContext();
     const handleAddProduct = (product) => {
         console.log(product);
         const toBeAddedId = product.id;

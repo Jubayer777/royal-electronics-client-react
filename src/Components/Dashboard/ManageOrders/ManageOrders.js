@@ -13,7 +13,7 @@ const ManageOrders = () => {
     //load all orders
     const [orders, setOrders] = useState([]);
     useEffect(() => {
-        fetch("http://127.0.0.1:8000/api/o1/orders", {
+        fetch("https://reapi.pabnafoods.com/api/o1/orders", {
             headers: {
                 "content-type": "application/json",
                 authorization: `Bearer ${token}`,
@@ -31,7 +31,7 @@ const ManageOrders = () => {
 
     //handle delete order
     const handleDeleteOrder = (id) => {
-        fetch(`http://127.0.0.1:8000/api/o1/orders/${id}`, {
+        fetch(`https://reapi.pabnafoods.com/api/o1/orders/${id}`, {
             method: "DELETE",
             headers: {
                 "content-type": "application/json",
@@ -58,7 +58,7 @@ const ManageOrders = () => {
             address: order.address,
         };
         const id = order.id;
-        fetch(`http://127.0.0.1:8000/api/o1/orders/${id}`, {
+        fetch(`https://reapi.pabnafoods.com/api/o1/orders/${id}`, {
             method: "PATCH",
             headers: {
                 "content-type": "application/json",

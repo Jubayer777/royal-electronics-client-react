@@ -11,7 +11,7 @@ const EditBrand = () => {
     //load brand data
     const [brand, setBrand] = useState([]);
     useEffect(() => {
-        fetch(`http://127.0.0.1:8000/api/b1/brands/${id}`)
+        fetch(`https://reapi.pabnafoods.com/api/b1/brands/${id}`)
             .then((res) => res.json())
             .then((data) => {
                 setBrand(data.data);
@@ -36,7 +36,7 @@ const EditBrand = () => {
         const brandData = {
             brand_name: info.brand_name || brand_name,
         };
-        fetch(`http://127.0.0.1:8000/api/b1/brands/${id}`, {
+        fetch(`https://reapi.pabnafoods.com/api/b1/brands/${id}`, {
             method: "PATCH",
             headers: {
                 "content-type": "application/json",

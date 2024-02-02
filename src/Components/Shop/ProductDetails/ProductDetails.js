@@ -1,25 +1,22 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router";
 import "./ProductDetails.css";
-import ReactHtmlParser, {
-    processNodes,
-    convertNodeToElement,
-    htmlparser2,
-} from "react-html-parser";
-import { UserContext, UserContext3 } from "../../../App";
+import ReactHtmlParser from "react-html-parser";
+import { UserContext } from "../../../App";
 import NavbarTop from "../../Home/NavbarTop/NavbarTop";
 import Navbar from "../../Home/Navbar/Navbar";
+import { useGlobalContext } from "../../../Context/GlobalContext";
 
 const ProductDetails = () => {
     const { id } = useParams();
-    const [isAdmin, setIsAdmin] = useContext(UserContext3);
+    const { isAdmin } = useGlobalContext();
     const [product, setProduct] = useState([]);
     const [category, setCategory] = useState([]);
     const [brand, setBrand] = useState([]);
     const [load, setLoad] = useState(true);
 
     useEffect(() => {
-        fetch(`http://127.0.0.1:8000/api/p1/products/${id}`)
+        fetch(`https://reapi.pabnafoods.com/api/p1/products/${id}`)
             .then((res) => res.json())
             .then((data) => {
                 setProduct(data.data);
@@ -34,7 +31,7 @@ const ProductDetails = () => {
     const { product_name, description, price, image, product_quantity } =
         product;
 
-    const [cart, setCart] = useContext(UserContext);
+    const { cart, setCart } = useGlobalContext();
     const handleAddProduct = () => {
         console.log(product);
         const toBeAddedId = product.id;
@@ -67,7 +64,7 @@ const ProductDetails = () => {
                 <div id="details-card">
                     <img
                         className="product-img"
-                        src={`http://127.0.0.1:8000/upload/${image}`}
+                        src={`https://reapi.pabnafoods.com/upload/${image}`}
                         alt={image}
                     />
                     <div className="">

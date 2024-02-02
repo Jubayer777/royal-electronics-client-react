@@ -11,7 +11,7 @@ const EditCategory = () => {
     //load category data
     const [category, setCategory] = useState([]);
     useEffect(() => {
-        fetch(`http://127.0.0.1:8000/api/c1/categories/${id}`)
+        fetch(`https://reapi.pabnafoods.com/api/c1/categories/${id}`)
             .then((res) => res.json())
             .then((data) => {
                 setCategory(data.data);
@@ -36,7 +36,7 @@ const EditCategory = () => {
         const categoryData = {
             category_name: info.category_name || category_name,
         };
-        fetch(`http://127.0.0.1:8000/api/c1/categories/${id}`, {
+        fetch(`https://reapi.pabnafoods.com/api/c1/categories/${id}`, {
             method: "PATCH",
             headers: {
                 "content-type": "application/json",

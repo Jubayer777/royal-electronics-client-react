@@ -1,27 +1,25 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-    faShoppingCart,
     faUser,
-    faPhoneAlt,
     faSignInAlt,
     faSignOutAlt,
     faCaretDown,
     faBars,
 } from "@fortawesome/free-solid-svg-icons";
-import { UserContext, UserContext2 } from "../../../App";
+import { useGlobalContext } from "../../../Context/GlobalContext";
+import { axiosInstance } from "../../../Helper/ApiCall/ApiCall";
+import { routes } from "../../../Utils/Constant";
 
 const Navbar = () => {
     const token = sessionStorage.getItem("token");
-    const userEmail = sessionStorage.getItem("userEmail");
     const userName = sessionStorage.getItem("userName");
-    const [loggedInUser, setLoggedInUser] = useContext(UserContext2);
-    const [cart, setCart] = useContext(UserContext);
+    const { setLoggedInUser, cart } = useGlobalContext();
 
     const handleLogOut = () => {
-        const url = "http://127.0.0.1:8000/api/auth/logout";
+        const url = "https://reapi.pabnafoods.com/api/auth/logout";
         fetch(url, {
             method: "POST",
             headers: {
@@ -42,28 +40,33 @@ const Navbar = () => {
     };
 
     const [brands, setBrands] = useState([]);
-    useEffect(() => {
-        fetch("http://127.0.0.1:8000/api/b1/brands")
-            .then((res) => res.json())
-            .then((data) => {
-                setBrands(data.data);
-            })
-            .catch((err) => {
-                console.log(err);
-            });
-    }, [brands]);
-
     const [categories, setCategories] = useState([]);
-    useEffect(() => {
-        fetch("http://127.0.0.1:8000/api/c1/categories")
-            .then((res) => res.json())
-            .then((data) => {
-                setCategories(data.data);
+    const getBrands = () => {
+        axiosInstance
+            .get(routes.allBrands)
+            .then((res) => {
+                setBrands(res.data.data);
             })
             .catch((err) => {
                 console.log(err);
+                setBrands([]);
             });
-    }, [categories]);
+    };
+    const getCategories = () => {
+        axiosInstance
+            .get(routes.allCategories)
+            .then((res) => {
+                setCategories(res.data.data);
+            })
+            .catch((err) => {
+                console.log(err);
+                setCategories([]);
+            });
+    };
+    useEffect(() => {
+        getBrands();
+        getCategories();
+    }, []);
 
     const myFunction = () => {
         const x = document.getElementById("myTopnav");

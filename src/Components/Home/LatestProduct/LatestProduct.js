@@ -1,39 +1,33 @@
 import React, { useEffect, useState } from "react";
 import Product from "../../Shop/Product/Product";
 import "./LatestProduct.css";
-import { css } from "@emotion/core";
-import CircleLoader from "react-spinners/CircleLoader";
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
-// spinner css
-const override = css`
-    display: block;
-    margin: 0 auto;
-    margin-top: 15%;
-    margin-bottom: 15%;
-    border-color: red;
-`;
+import { axiosInstance } from "../../../Helper/ApiCall/ApiCall";
+import { routes } from "../../../Utils/Constant";
+import Loader from "../../Shop/Loader/Loader";
 
 const LatestProduct = () => {
-    let [loading, setLoading] = useState(true);
-    let [color, setColor] = useState("orange");
-
     const [products, setProducts] = useState([]);
-    useEffect(() => {
-        fetch(`http://127.0.0.1:8000/api/p1/products/latest`)
-            .then((res) => res.json())
-            .then((data) => {
-                //console.log(data.data)
-                setProducts(data.data);
+    let [loading, setLoading] = useState(true);
+    const getProducts = () => {
+        axiosInstance
+            .get(routes.latestProducts)
+            .then((res) => {
+                setProducts(res.data.data);
                 setLoading(false);
             })
             .catch((err) => {
                 console.log(err);
+                setProducts([]);
             });
-    }, [products]);
+    };
+
+    useEffect(() => {
+        getProducts();
+    }, []);
 
     var settings = {
         dots: false,
@@ -72,20 +66,32 @@ const LatestProduct = () => {
         <div className="banner-bg">
             <h2 className="latest-header">Our Latest Products</h2>
 
-            <Slider {...settings}>
-                {products.map((pd) => (
-                    <Product
-                        key={pd.id}
-                        product={pd}
-                        brand={pd.brand}
-                        category={pd.category}
-                    ></Product>
-                ))}
-            </Slider>
+            {products.length > 0 && (
+                <Slider {...settings}>
+                    {products.map((pd) => (
+                        <Product
+                            key={pd.id}
+                            product={pd}
+                            brand={pd.brand}
+                            category={pd.category}
+                        ></Product>
+                    ))}
+                </Slider>
+            )}
+            {loading && (
+                <div className="loader-div">
+                    <Loader loading={loading} />
+                </div>
+            )}
+            {products.length === 0 && !loading && (
+                <h4 className="no-match"> No match found!</h4>
+            )}
 
-            <Link id="see-all-link" to="/shop">
-                See all
-            </Link>
+            {products.length > 0 && (
+                <Link id="see-all-link" to="/shop">
+                    See all
+                </Link>
+            )}
         </div>
     );
 };

@@ -23,7 +23,7 @@ const MakeAdmin = () => {
         };
         console.log(adminData);
 
-        fetch("http://127.0.0.1:8000/api/a1/admins", {
+        fetch("https://reapi.pabnafoods.com/api/a1/admins", {
             method: "POST",
             headers: {
                 "content-type": "application/json",

@@ -1,15 +1,15 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useHistory, useLocation } from "react-router";
 import { Link } from "react-router-dom";
-import { UserContext2 } from "../../App";
 import "./Login.css";
+import { useGlobalContext } from "../../Context/GlobalContext";
 
 const Login = () => {
     const history = useHistory();
     const location = useLocation();
     let { from } = location.state || { from: { pathname: "/" } };
-    const [loggedInUser, setLoggedInUser] = useContext(UserContext2);
+    const { setLoggedInUser } = useGlobalContext();
     const [error, setError] = useState("");
     const [errorsData, setErrorsData] = useState("");
 
@@ -28,7 +28,7 @@ const Login = () => {
                 password_confirmation: data.password_confirmation,
             };
             console.log("check", registrationData);
-            const url = "http://127.0.0.1:8000/api/auth/register";
+            const url = "https://reapi.pabnafoods.com/api/auth/register";
             fetch(url, {
                 method: "POST",
                 headers: {
@@ -39,7 +39,6 @@ const Login = () => {
                 .then((res) => res.json())
                 .then((data) => {
                     if (data.success === true) {
-                        console.log(data, "kk");
                         history.push(`/emailNotify`);
                     } else if (data.success === false && data.errors) {
                         setErrorsData(data.errors);
@@ -60,7 +59,7 @@ const Login = () => {
                 password: data.password,
             };
             console.log(loginData);
-            const url = "http://127.0.0.1:8000/api/auth/login";
+            const url = "https://reapi.pabnafoods.com/api/auth/login";
             fetch(url, {
                 method: "POST",
                 headers: {

@@ -18,7 +18,7 @@ const AddCategory = () => {
         const categoryData = {
             category_name: info.category_name,
         };
-        fetch("http://127.0.0.1:8000/api/c1/categories", {
+        fetch("https://reapi.pabnafoods.com/api/c1/categories", {
             method: "POST",
             headers: {
                 "content-type": "application/json",

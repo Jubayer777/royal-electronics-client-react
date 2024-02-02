@@ -10,7 +10,7 @@ const Orders = () => {
     const [load, setLoad] = useState(true);
     const [orders, setOrders] = useState([]);
     useEffect(() => {
-        fetch(`http://127.0.0.1:8000/api/o1/orders/${userId}`, {
+        fetch(`https://reapi.pabnafoods.com/api/o1/orders/${userId}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",

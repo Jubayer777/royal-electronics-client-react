@@ -1,33 +1,43 @@
 .banner-bg {
-    background-image: url('../../../images/review-bg.jpg');
+    background-image: url("../../../images/review-bg.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    min-height: 550px;
     height: auto;
     padding-top: 2%;
     padding-bottom: 2%;
-  }
-.latest-header{
+    display: flex;
+    flex-direction: column;
+}
+.latest-header {
     font-weight: bold;
     color: white;
     text-align: center;
 }
+.loader-div{
+ margin-top: auto;
+ margin-bottom: auto;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ width: 100%;
+}
 
-  .slick-prev {
+.slick-prev {
     left: 3% !important;
     z-index: 1;
-  }
-  .slick-next {
+}
+.slick-next {
     right: 3% !important;
     z-index: 1;
-  }
-
-#see-all-link{
-   display: flex;
-   justify-content: center;
-   color: white;
-   text-decoration: none;
-}
-#see-all-link:hover{
-  color:darkorange;
 }
 
+#see-all-link {
+    display: flex;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+}
+#see-all-link:hover {
+    color: darkorange;
+}

@@ -13,7 +13,7 @@ const ManageBrand = () => {
     //load all brands
     const [brands, setBrands] = useState([]);
     useEffect(() => {
-        fetch("http://127.0.0.1:8000/api/b1/brands")
+        fetch("https://reapi.pabnafoods.com/api/b1/brands")
             .then((res) => res.json())
             .then((data) => {
                 setBrands(data.data);
@@ -26,7 +26,7 @@ const ManageBrand = () => {
 
     //delete brand
     const handleDeleteBrand = (id) => {
-        fetch(`http://127.0.0.1:8000/api/b1/brands/${id}`, {
+        fetch(`https://reapi.pabnafoods.com/api/b1/brands/${id}`, {
             method: "DELETE",
             headers: {
                 "content-type": "application/json",

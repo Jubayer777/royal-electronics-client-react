@@ -20,7 +20,7 @@ const EditProduct = () => {
     //load product data
     const [product, setProduct] = useState([]);
     useEffect(() => {
-        fetch(`http://127.0.0.1:8000/api/p1/products/${id}`)
+        fetch(`https://reapi.pabnafoods.com/api/p1/products/${id}`)
             .then((res) => res.json())
             .then((data) => {
                 setProduct(data.data);
@@ -42,7 +42,7 @@ const EditProduct = () => {
     //load categories
     const [categories, setCategories] = useState([]);
     useEffect(() => {
-        fetch("http://127.0.0.1:8000/api/c1/categories")
+        fetch("https://reapi.pabnafoods.com/api/c1/categories")
             .then((res) => res.json())
             .then((data) => {
                 setCategories(data.data);
@@ -55,7 +55,7 @@ const EditProduct = () => {
     //load brands
     const [brands, setBrands] = useState([]);
     useEffect(() => {
-        fetch("http://127.0.0.1:8000/api/b1/brands")
+        fetch("https://reapi.pabnafoods.com/api/b1/brands")
             .then((res) => res.json())
             .then((data) => {
                 setBrands(data.data);
@@ -103,7 +103,7 @@ const EditProduct = () => {
         formData.append("image", photo || image);
         formData.append("_method", "PATCH");
 
-        fetch(`http://127.0.0.1:8000/api/p1/products/${id}`, {
+        fetch(`https://reapi.pabnafoods.com/api/p1/products/${id}`, {
             method: "POST",
             headers: {
                 authorization: `Bearer ${token}`,
@@ -233,7 +233,7 @@ const EditProduct = () => {
                                     {photo === "" ? (
                                         <img
                                             className="img-div"
-                                            src={`http://127.0.0.1:8000/upload/${image}`}
+                                            src={`https://reapi.pabnafoods.com/upload/${image}`}
                                             alt={image}
                                         />
                                     ) : (
