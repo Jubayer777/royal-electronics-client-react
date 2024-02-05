@@ -1,16 +1,19 @@
-.login-card{
-    margin-top: 160px;
+.auth-container{
+    height: 99.8vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.auth-card{
     width: 290px;
     background-color:DarkSeaGreen;
     padding: 20px;
-    margin-left: auto;
-    margin-right: auto;
     border-radius: 5px;
 }
 .user-input{
     width: 270px;
     padding: 7px;
-    margin-bottom: 15px;
     border-top: none;
     border-left: none;
     border-right: none;
@@ -23,7 +26,13 @@
     outline-width: 0px;
     box-shadow: 0 0 5pt 0.5pt #D3D3D3;
 }
-.user-submit{
+.user-field-error{
+    color:red;
+    font-size: 12px;
+    line-height: 1px;
+    height: 3px;
+}
+.auth-submit-btn{
     width: 284px;
     padding: 5px;
     margin-top: 10px;
@@ -31,27 +40,27 @@
     background-color:chocolate;
     cursor: pointer;
 }
-.user-submit:hover{
+.auth-submit-btn:hover{
     box-shadow: 0 0 5pt 0.5pt #D3D3D3;
 }
-.select-option{
-    text-align: center;
-}
-.user-manage-btn{
+.auth-link{
     text-decoration: none;
     border:none;
     background-color: DarkSeaGreen;
     color:blue;
-    font-size: 15px;
+    font-size: 14px;
     cursor: pointer;
+    margin-left: 5px;
 }
-.user-manage-btn:hover{
+.auth-link:hover{
     color: #3f2a2a;
 }
-.errors{
-    color: red;
+
+.select-option{
     text-align: center;
+    font-size: 14px;
 }
+
 .forgot-btn{
     margin-left: 32%;
     text-decoration: none;

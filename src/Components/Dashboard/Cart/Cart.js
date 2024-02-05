@@ -7,7 +7,7 @@ import Sidebar from "../SideBar/Sidebar";
 import { useGlobalContext } from "../../../Context/GlobalContext";
 
 const Cart = () => {
-    const userName = sessionStorage.getItem("userName");
+    const userName = localStorage.getItem("userName");
     const { cart, setCart } = useGlobalContext();
     let total = 0;
     for (let i = 0; i < cart.length; i++) {

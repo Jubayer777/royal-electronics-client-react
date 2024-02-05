@@ -6,8 +6,8 @@ import { useHistory } from "react-router";
 import Pagination from "../../Shop/Pagination/Pagination";
 
 const ManageCategory = () => {
-    const userName = sessionStorage.getItem("userName");
-    const token = sessionStorage.getItem("token");
+    const userName = localStorage.getItem("userName");
+    const token = localStorage.getItem("token");
     const [load, setLoad] = useState(true);
     //load all categories
     const [categories, setCategories] = useState([]);

@@ -12,31 +12,44 @@ import {
 import { useGlobalContext } from "../../../Context/GlobalContext";
 import { axiosInstance } from "../../../Helper/ApiCall/ApiCall";
 import { routes } from "../../../Utils/Constant";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
-    const token = sessionStorage.getItem("token");
-    const userName = sessionStorage.getItem("userName");
-    const { setLoggedInUser, cart } = useGlobalContext();
+    const token = localStorage.getItem("token");
+    const userName = localStorage.getItem("userName");
+    const { setLoggedInUser, cart, setIsAdmin } = useGlobalContext();
 
     const handleLogOut = () => {
-        const url = "https://reapi.pabnafoods.com/api/auth/logout";
-        fetch(url, {
-            method: "POST",
-            headers: {
-                "content-type": "application/json",
-                authorization: `Bearer ${token}`,
-            },
-        })
-            .then((res) => res.json())
-            .then((data) => {
-                alert(data.message);
-                sessionStorage.clear();
+        axiosInstance
+            .post(routes.logout)
+            .then((res) => {
+                localStorage.clear();
                 cart.length = 0;
                 setLoggedInUser({});
+                setIsAdmin(false);
+                toast.success(res.data.message);
             })
             .catch((err) => {
-                console.log(err);
+                toast.error(err?.response?.statusText);
             });
+        // const url = "https://reapi.pabnafoods.com/api/auth/logout";
+        // fetch(url, {
+        //     method: "POST",
+        //     headers: {
+        //         "content-type": "application/json",
+        //         authorization: `Bearer ${token}`,
+        //     },
+        // })
+        //     .then((res) => res.json())
+        //     .then((data) => {
+        //         alert(data.message);
+        //         localStorage.clear();
+        //         cart.length = 0;
+        //         setLoggedInUser({});
+        //     })
+        //     .catch((err) => {
+        //         console.log(err);
+        //     });
     };
 
     const [brands, setBrands] = useState([]);
@@ -77,13 +90,13 @@ const Navbar = () => {
         }
     };
 
-    const time = sessionStorage?.getItem("time");
+    const time = localStorage?.getItem("time");
     if (time) {
         const today = new Date();
         const diff = new Date(today) - new Date(time);
         const min = Math.floor(diff / 1000 / 60);
         if (min > 29) {
-            sessionStorage.clear();
+            localStorage.clear();
             cart.length = 0;
             setLoggedInUser({});
         }

@@ -8,8 +8,8 @@ import gallary from "../../../images/gallery.png";
 import camera from "../../../images/camera.png";
 
 const AddProduct = () => {
-    const userName = sessionStorage.getItem("userName");
-    const token = sessionStorage.getItem("token");
+    const userName = localStorage.getItem("userName");
+    const token = localStorage.getItem("token");
     const history = useHistory();
     const [ckData, setCkData] = useState("");
     const [info, setInfo] = useState({});

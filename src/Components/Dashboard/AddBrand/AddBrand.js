@@ -3,8 +3,8 @@ import { useHistory } from "react-router";
 import Sidebar from "../SideBar/Sidebar";
 
 const AddBrand = () => {
-    const userName = sessionStorage.getItem("userName");
-    const token = sessionStorage.getItem("token");
+    const userName = localStorage.getItem("userName");
+    const token = localStorage.getItem("token");
     const history = useHistory();
     const [info, setInfo] = useState({});
     const handleBlur = (e) => {

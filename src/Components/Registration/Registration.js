@@ -1,61 +1,59 @@
-import React, { useState } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
-import { useHistory, useLocation } from "react-router";
+import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
-import "./Login.css";
-import { useGlobalContext } from "../../Context/GlobalContext";
 import { axiosInstance } from "../../Helper/ApiCall/ApiCall";
 import { routes } from "../../Utils/Constant";
 import { toast } from "react-toastify";
 
-const Login = () => {
+const Registration = () => {
     const history = useHistory();
-    const location = useLocation();
-    let { from } = location.state || { from: { pathname: "/" } };
-    const { setLoggedInUser, checkAdmin } = useGlobalContext();
-
     const {
         register,
         handleSubmit,
-        reset,
+        watch,
         formState: { errors },
     } = useForm();
-    const login = (data) => {
+
+    const signUp = (data) => {
         axiosInstance
-            .post(routes.login, data)
-            .then(async (res) => {
-                await checkAdmin(res.data.user.id);
-                const today = new Date();
-                localStorage.setItem("time", today);
-                localStorage.setItem("token", res.data.token);
-                localStorage.setItem("userId", res.data.user.id);
-                localStorage.setItem("userName", res.data.user.name);
-                localStorage.setItem("userEmail", res.data.user.email);
-                setLoggedInUser(res.data.user);
-                history.replace(from);
+            .post(routes.signUp, data)
+            .then((res) => {
+                history.push(`/emailNotify`);
                 toast.success(res.data.message);
-                reset();
             })
             .catch((err) => {
                 toast.error(err?.response?.statusText);
             });
     };
-
     const onSubmit = (data) => {
-        const loginData = {
+        const registrationData = {
+            name: data.name,
             email: data.email,
             password: data.password,
+            password_confirmation: data.password_confirmation,
         };
-        login(loginData);
+        signUp(registrationData);
     };
     return (
         <div className="auth-container">
             <form className="auth-card" onSubmit={handleSubmit(onSubmit)}>
-                <h3>Login</h3>
+                <h3>Registration</h3>
                 <input
                     className="user-input"
-                    placeholder="Email"
+                    placeholder="Name"
+                    name="name"
+                    {...register("name", {
+                        required: "Name is Required",
+                    })}
+                />
+                <p className="user-field-error">
+                    {errors.name && errors.name.message}
+                </p>
+                <input
+                    className="user-input"
                     type="email"
+                    placeholder="Email"
                     name="email"
                     {...register("email", {
                         required: "Email is Required",
@@ -70,8 +68,8 @@ const Login = () => {
                 </p>
                 <input
                     className="user-input"
-                    placeholder="Password"
                     type="password"
+                    placeholder="Password"
                     name="password"
                     {...register("password", {
                         required: "Password is Required",
@@ -88,21 +86,34 @@ const Login = () => {
                 <p className="user-field-error">
                     {errors.password && errors.password.message}
                 </p>
+                <input
+                    className="user-input"
+                    type="password"
+                    placeholder="Confirm Your Password"
+                    name="password_confirmation"
+                    {...register("password_confirmation", {
+                        required: "Password confirmation is Required",
+                        validate: (value) =>
+                            value === watch("password") ||
+                            "Passwords do not match",
+                    })}
+                />
+                <p className="user-field-error">
+                    {errors.password_confirmation &&
+                        errors.password_confirmation.message}
+                </p>
                 <button className="auth-submit-btn" type="submit">
-                    Login
+                    SignUp
                 </button>
                 <p className="select-option">
-                    Don't have an account?
-                    <Link to="/registration" className="auth-link">
-                        Registration
+                    Already have an account?
+                    <Link to="/login" className="auth-link">
+                        Login
                     </Link>
                 </p>
-                <Link className="forgot-btn" to="/forgotPassword">
-                    Forgot Password
-                </Link>
             </form>
         </div>
     );
 };
 
-export default Login;
+export default Registration;

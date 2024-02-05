@@ -20,7 +20,7 @@ const Sidebar = () => {
     } else {
         Role = "User";
     }
-    const token = sessionStorage.getItem("token");
+    const token = localStorage.getItem("token");
     const handleSignOut = () => {
         const url = "https://reapi.pabnafoods.com/api/auth/logout";
         fetch(url, {
@@ -33,7 +33,7 @@ const Sidebar = () => {
             .then((res) => res.json())
             .then((data) => {
                 alert(data.message);
-                sessionStorage.clear();
+                localStorage.clear();
                 cart.length = 0;
                 setLoggedInUser({});
                 history.push("/home");
@@ -42,13 +42,13 @@ const Sidebar = () => {
                 console.log(err);
             });
     };
-    const time = sessionStorage.getItem("time");
+    const time = localStorage.getItem("time");
     if (time) {
         const today = new Date();
         const diff = new Date(today) - new Date(time);
         const min = Math.floor(diff / 1000 / 60);
         if (min > 29) {
-            sessionStorage.clear();
+            localStorage.clear();
             cart.length = 0;
             setLoggedInUser({});
             history.push("/home");

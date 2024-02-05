@@ -5,10 +5,10 @@ import Sidebar from "../SideBar/Sidebar";
 import Pagination from "../../Shop/Pagination/Pagination";
 
 const ManageOrders = () => {
-    const userId = sessionStorage.getItem("userId");
-    const userEmail = sessionStorage.getItem("userEmail");
-    const userName = sessionStorage.getItem("userName");
-    const token = sessionStorage.getItem("token");
+    const userId = localStorage.getItem("userId");
+    const userEmail = localStorage.getItem("userEmail");
+    const userName = localStorage.getItem("userName");
+    const token = localStorage.getItem("token");
     const [load, setLoad] = useState(true);
     //load all orders
     const [orders, setOrders] = useState([]);

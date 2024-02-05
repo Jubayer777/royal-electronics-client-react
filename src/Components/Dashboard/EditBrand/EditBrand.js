@@ -3,8 +3,8 @@ import { useHistory, useParams } from "react-router";
 import Sidebar from "../SideBar/Sidebar";
 
 const EditBrand = () => {
-    const userName = sessionStorage.getItem("userName");
-    const token = sessionStorage.getItem("token");
+    const userName = localStorage.getItem("userName");
+    const token = localStorage.getItem("token");
     const history = useHistory();
     const { id } = useParams();
 

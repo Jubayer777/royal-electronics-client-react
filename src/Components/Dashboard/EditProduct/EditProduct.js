@@ -11,8 +11,8 @@ import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import camera from "../../../images/camera.png";
 
 const EditProduct = () => {
-    const userName = sessionStorage.getItem("userName");
-    const token = sessionStorage.getItem("token");
+    const userName = localStorage.getItem("userName");
+    const token = localStorage.getItem("token");
     const history = useHistory();
     const { id } = useParams();
     console.log(id);

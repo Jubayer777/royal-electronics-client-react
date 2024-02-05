@@ -30,6 +30,7 @@ import ManageOrders from "../../Components/Dashboard/ManageOrders/ManageOrders";
 import MakeAdmin from "../../Components/Dashboard/MakeAdmin/MakeAdmin";
 import ManageAdmin from "../../Components/Dashboard/ManageAdmin/ManageAdmin";
 import { useGlobalContext } from "../../Context/GlobalContext";
+import Registration from "../../Components/Registration/Registration";
 
 const MainRoute = () => {
     const { isAdmin } = useGlobalContext();
@@ -56,6 +57,9 @@ const MainRoute = () => {
                 </Route>
                 <Route path="/invalid/:message">
                     <Invalid />
+                </Route>
+                <Route path="/registration">
+                    <Registration />
                 </Route>
                 <Route path="/login">
                     <Login />

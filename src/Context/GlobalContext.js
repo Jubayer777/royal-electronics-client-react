@@ -13,20 +13,20 @@ export const GlobalContextProvider = ({ children }) => {
     const [cart, setCart] = useState([]);
     const [loggedInUser, setLoggedInUser] = useState({});
     const [isAdmin, setIsAdmin] = useState(false);
-    const checkAdmin = (id) => {
-        axiosInstance
-            .post(routes.adminCheck, {
+    const checkAdmin = async (id) => {
+        try {
+            const res = await axiosInstance.post(routes.adminCheck, {
                 user_id: id,
-            })
-            .then((res) => {
-                setIsAdmin(res.data.success);
-            })
-            .catch((err) => {
-                setIsAdmin(false);
             });
+            setIsAdmin(res.data.success);
+            return res.data.success;
+        } catch (err) {
+            setIsAdmin(false);
+            return false;
+        }
     };
     useLayoutEffect(() => {
-        const userId = sessionStorage.getItem("userId");
+        const userId = localStorage.getItem("userId");
         if (userId) {
             checkAdmin(userId);
         }
@@ -41,6 +41,7 @@ export const GlobalContextProvider = ({ children }) => {
                 setLoggedInUser,
                 isAdmin,
                 setIsAdmin,
+                checkAdmin,
             }}
         >
             {children}

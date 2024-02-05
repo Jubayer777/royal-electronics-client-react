@@ -6,10 +6,10 @@ import { useHistory } from "react-router";
 import Pagination from "../../Shop/Pagination/Pagination";
 
 const ManageAdmin = () => {
-    const userId = sessionStorage.getItem("userId");
-    const userEmail = sessionStorage.getItem("userEmail");
-    const userName = sessionStorage.getItem("userName");
-    const token = sessionStorage.getItem("token");
+    const userId = localStorage.getItem("userId");
+    const userEmail = localStorage.getItem("userEmail");
+    const userName = localStorage.getItem("userName");
+    const token = localStorage.getItem("token");
     const [admins, setAdmins] = useState([]);
     const [load, setLoad] = useState(true);
 
